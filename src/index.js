@@ -154,11 +154,8 @@ DuplicatePackageCheckerPlugin.prototype.apply = function apply(compiler) {
 
         let instances = duplicates[name].sort((a, b) => (a.version < b.version ? -1 : 1));
 
-        let error = `${name
-        }\n${
-          chalk.reset('  Multiple versions of ')
-        }${chalk.green.bold(name)
-        }${chalk.white(' found:\n')}`;
+        let error = `${name}\n${chalk.reset('  Multiple versions of ')}${chalk.green.bold(name)}${chalk.white(' found:\n')}`;
+
         instances = instances.map((version) => {
           let str = `${chalk.green.bold(version.version)} ${chalk.white.bold(
             version.path,
