@@ -1,0 +1,4 @@
+lib
+node_modules
+reports
+/test/**/dist/bundle.js

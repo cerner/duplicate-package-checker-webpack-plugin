@@ -1,2 +1,14 @@
-/test
-screenshot.png
+*.log
+node_modules
+src
+target
+reports
+tests
+errorScreenshots
+.github
+screenshots
+dangerfile.js
+.travis.yml
+.gitattributes
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
