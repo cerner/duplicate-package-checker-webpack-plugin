@@ -84,4 +84,13 @@ describe('Simple dependency tree', () => {
       },
     );
   });
+  it('should output errors if duplicate packages are found within alwaysEmitErrorsFor', (done) => {
+    webpack(MakeConfig({ alwaysEmitErrorsFor: ['a'] }), (err, stats) => {
+      expect(stats.compilation.errors[0].message).toMatchSnapshot();
+      expect(stats.compilation.warnings[0].message).toMatchSnapshot();
+      assert(stats.compilation.errors.length === 1);
+      assert(stats.compilation.warnings.length === 1);
+      done();
+    });
+  });
 });

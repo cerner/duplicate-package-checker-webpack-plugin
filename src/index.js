@@ -1,7 +1,7 @@
 const path = require('path');
 const findRoot = require('find-root');
 const chalk = require('chalk');
-const _ = require('lodash/lodash');
+const groupBy = require('lodash.groupby');
 const semver = require('semver/semver');
 
 const defaults = {
@@ -13,7 +13,7 @@ const defaults = {
 };
 
 function DuplicatePackageCheckerPlugin(options) {
-  this.options = _.extend({}, defaults, options);
+  this.options = Object.assign({}, defaults, options);
 }
 
 function cleanPath(pathString) {
@@ -48,11 +48,9 @@ function getClosestPackage(modulePath) {
 }
 
 DuplicatePackageCheckerPlugin.prototype.apply = function apply(compiler) {
-  const { verbose } = this.options;
-  const { showHelp } = this.options;
-  const { emitError } = this.options;
-  const { exclude } = this.options;
-  const { strict } = this.options;
+  const {
+    verbose, showHelp, emitError, exclude, strict, alwaysEmitErrorsFor = [],
+  } = this.options;
 
   compiler.hooks.emit.tapAsync('DuplicatePackageCheckerPlugin', (
     compilation,
@@ -93,7 +91,7 @@ DuplicatePackageCheckerPlugin.prototype.apply = function apply(compiler) {
 
       modules[pkg.name] = modules[pkg.name] || [];
 
-      const isSeen = _.find(modules[pkg.name], pkgModule => pkgModule.version === version);
+      const isSeen = modules[pkg.name].find(pkgModule => pkgModule.version === version);
 
       if (!isSeen) {
         const entry = { version, path: modulePath };
@@ -119,10 +117,11 @@ DuplicatePackageCheckerPlugin.prototype.apply = function apply(compiler) {
       let filtered = instances;
       if (!strict) {
         filtered = [];
-        const groups = _.groupBy(instances, instance => semver.major(instance.version));
+        const groups = groupBy(instances, instance => semver.major(instance.version)) || {};
 
-        _.each(groups, (group) => {
-          if (group.length > 1) {
+        Object.keys(groups).forEach((groupKey) => {
+          const group = groups[groupKey];
+          if (group && group.length > 1) {
             filtered = filtered.concat(group);
           }
         });
@@ -146,11 +145,13 @@ DuplicatePackageCheckerPlugin.prototype.apply = function apply(compiler) {
     const duplicateCount = Object.keys(duplicates).length;
 
     if (duplicateCount) {
-      const array = emitError ? compilation.errors : compilation.warnings;
-
       const sortedDuplicateKeys = Object.keys(duplicates).sort();
 
       sortedDuplicateKeys.forEach((name, index) => {
+        const array = emitError || alwaysEmitErrorsFor.indexOf(name) >= 0
+          ? compilation.errors
+          : compilation.warnings;
+
         let instances = duplicates[name].sort((a, b) => (a.version < b.version ? -1 : 1));
 
         let error = `${name
