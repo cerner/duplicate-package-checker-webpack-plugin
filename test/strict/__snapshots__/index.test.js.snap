@@ -7,7 +7,7 @@ exports[`Simple dependency tree should not output warnings if not strict 1`] = `
     [32m[1m2.5.0[22m[39m [37m[1m./~/c/~/a[22m[39m
 
 [37m[1mCheck how you can resolve duplicate packages: [22m[39m
-https://github.com/darrenscerri/duplicate-package-checker-webpack-plugin#resolving-duplicate-packages-in-your-bundle
+https://github.com/cerner/duplicate-package-checker-webpack-plugin#resolving-duplicate-packages-in-your-bundle
 "
 `;
 
@@ -27,6 +27,6 @@ exports[`Simple dependency tree should output warnings if strict 2`] = `
     [32m[1m2.0.0[22m[39m [37m[1m./~/c/~/a/~/b[22m[39m
 
 [37m[1mCheck how you can resolve duplicate packages: [22m[39m
-https://github.com/darrenscerri/duplicate-package-checker-webpack-plugin#resolving-duplicate-packages-in-your-bundle
+https://github.com/cerner/duplicate-package-checker-webpack-plugin#resolving-duplicate-packages-in-your-bundle
 "
 `;

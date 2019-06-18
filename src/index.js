@@ -164,8 +164,8 @@ DuplicatePackageCheckerPlugin.prototype.apply = function(compiler) {
       let sortedDuplicateKeys = Object.keys(duplicates).sort();
 
       sortedDuplicateKeys.map(name => {
-        let instances = duplicates[name].sort(
-          (a, b) => (a.version < b.version ? -1 : 1)
+        let instances = duplicates[name].sort((a, b) =>
+          a.version < b.version ? -1 : 1
         );
 
         let error =
@@ -188,7 +188,7 @@ DuplicatePackageCheckerPlugin.prototype.apply = function(compiler) {
         if (showHelp && ++i === duplicateCount) {
           error += `\n${chalk.white.bold(
             "Check how you can resolve duplicate packages: "
-          )}\nhttps://github.com/darrenscerri/duplicate-package-checker-webpack-plugin#resolving-duplicate-packages-in-your-bundle\n`;
+          )}\nhttps://github.com/cerner/duplicate-package-checker-webpack-plugin#resolving-duplicate-packages-in-your-bundle\n`;
         }
         array.push(new Error(error));
       });

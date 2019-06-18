@@ -1,10 +1,12 @@
 # 🕵 duplicate-package-checker-webpack-plugin
 
-[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status](https://travis-ci.org/darrenscerri/duplicate-package-checker-webpack-plugin.svg?branch=master)](https://travis-ci.org/darrenscerri/duplicate-package-checker-webpack-plugin)
+[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status](https://travis-ci.org/cerner/duplicate-package-checker-webpack-plugin.svg?branch=master)](https://travis-ci.org/cerner/duplicate-package-checker-webpack-plugin)
 
 Webpack plugin that warns when your bundle contains multiple versions of the same package.
 
-![duplicate-package-checker-webpack-plugin](https://raw.githubusercontent.com/darrenscerri/duplicate-package-checker-webpack-plugin/master/screenshot.png)
+![duplicate-package-checker-webpack-plugin](https://raw.githubusercontent.com/cerner/duplicate-package-checker-webpack-plugin/master/screenshot.png)
+
+This package is a modified fork of [darrenscerri](@darrenscerri)'s [duplicate-package-checker-webpack-plugin](https://github.com/darrenscerri/duplicate-package-checker-webpack-plugin).
 
 ## Why?
 
