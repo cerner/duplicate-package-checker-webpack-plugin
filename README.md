@@ -6,7 +6,7 @@ Webpack plugin that warns when your bundle contains multiple versions of the sam
 
 ![duplicate-package-checker-webpack-plugin](https://raw.githubusercontent.com/cerner/duplicate-package-checker-webpack-plugin/master/screenshot.png)
 
-This package is a modified fork of [darrenscerri](@darrenscerri)'s [duplicate-package-checker-webpack-plugin](https://github.com/darrenscerri/duplicate-package-checker-webpack-plugin).
+This package is a modified fork of [darrenscerri](https://github.com/darrenscerri)'s [duplicate-package-checker-webpack-plugin](https://github.com/darrenscerri/duplicate-package-checker-webpack-plugin).
 
 ## Why?
 
