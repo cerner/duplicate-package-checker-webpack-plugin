@@ -1,8 +1,17 @@
 const webpack = require('webpack');
 const assert = require('assert');
+const chalk = require('chalk');
 const MakeConfig = require('./make.webpack.config');
 
 describe('Simple dependency tree', () => {
+  beforeEach(() => {
+    chalk.enabled = false;
+  });
+
+  afterEach(() => {
+    chalk.enabled = true;
+  });
+
   it('should output warnings if strict', (done) => {
     webpack(MakeConfig(), (err, stats) => {
       assert(stats.compilation.warnings.length === 2);
