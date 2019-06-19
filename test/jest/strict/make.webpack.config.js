@@ -1,5 +1,5 @@
 const path = require('path');
-const DuplicatePackageCheckerPlugin = require('../../../src');
+const DuplicatePackageCheckerPlugin = require('../../../lib');
 
 module.exports = function make(options) {
   return {

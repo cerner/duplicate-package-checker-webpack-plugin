@@ -5,6 +5,10 @@ const config = require('./webpack.config');
 
 describe('npm v2 packages', () => {
   beforeEach(() => {
+    /**
+     * Travis-ci doesn't support colorized string generation with Chalk. To prevent snapshot mismatches
+     * with Travis's test output, Chalk is disabled for snapshot tests.
+     */
     chalk.enabled = false;
   });
 

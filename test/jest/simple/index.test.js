@@ -5,6 +5,10 @@ const MakeConfig = require('./make.webpack.config');
 
 describe('Simple dependency tree', () => {
   beforeEach(() => {
+    /**
+     * Travis-ci doesn't support colorized string generation with Chalk. To prevent snapshot mismatches
+     * with Travis's test output, Chalk is disabled for snapshot tests.
+     */
     chalk.enabled = false;
   });
 
