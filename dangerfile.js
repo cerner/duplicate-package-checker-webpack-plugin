@@ -1,13 +1,13 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { danger, fail } from 'danger';
 
-const hasCHANGELOGChanges = danger.git.modified_files.some((filePath) => {
+const hasCHANGELOGChanges = [...danger.git.modified_files, ...danger.git.created_files].some((filePath) => {
   const srcFilePattern = /CHANGELOG.md/i;
   return srcFilePattern.test(filePath);
 });
 
 const hasModifiedFiles = danger.git.modified_files.some((filePath) => {
-  const filePattern = /(src|scripts|config)/;
+  const filePattern = /(src|test)/;
   return !filePath.includes('md') && filePattern.test(filePath);
 });
 
