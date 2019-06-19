@@ -1,4 +1,3 @@
-lib
-node_modules
-reports
+/node_modules
+/coverage
 /test/**/dist/bundle.js
