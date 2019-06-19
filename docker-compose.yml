@@ -17,3 +17,9 @@ services:
   term:
     <<: *dev
     command: "/bin/zsh"
+
+  test-ci:
+    build: ./
+    image: "duplicate-package-checker-webpack-plugin:dev"
+    environment:
+      - CI=true
