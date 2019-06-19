@@ -21,11 +21,6 @@ before_cache:
   - if [ $TRAVIS_TEST_RESULT == 1 ]; then rm -f $HOME/docker/*.tar.gz; fi
 jobs:
   include:
-    - stage: release terra-node
-      script:
-        - echo "$DOCKER_PASSWORD" | docker login -u "ryanthemanuel" --password-stdin
-        - travis_wait docker build -t cerner/terra-node -f ./docker/terra-node/Dockerfile ./docker/terra-node/
-        - travis_wait docker push cerner/terra-node
     - stage: build
       before_install: true
       script:
@@ -48,8 +43,6 @@ jobs:
         - sudo chown -R travis:travis $HOME/docker
         - 'rm -f $HOME/docker/*.tar.gz'
 stages:
-  - name: release terra-node
-    if: type != pull_request
   - build
   - lint jest and danger
   - test
