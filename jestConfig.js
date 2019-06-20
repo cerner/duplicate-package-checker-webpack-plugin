@@ -1,7 +1,7 @@
 module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
-    'src/*.js',
+    'lib/*.js',
   ],
   testMatch: [
     '**/jest/**/(*.)(spec|test).js?(x)',
