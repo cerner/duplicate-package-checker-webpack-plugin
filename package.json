@@ -1,51 +1,55 @@
 {
-  "name": "duplicate-package-checker-webpack-plugin",
-  "version": "2.1.0",
-  "description":
-    "Webpack plugin that warns you when multiple versions of the same package exist in a build.",
-  "main": "./lib/index.js",
-  "scripts": {
-    "test": "jest test/**/*.test.js --runInBand",
-    "build": "babel src --out-dir lib",
-    "prepublish": "npm run build",
-    "precommit": "lint-staged",
-    "pretty": "prettier --write \"src/**/*.{json,js}\" \"test/**/*.{json,js}\""
+  "name": "@cerner/duplicate-package-checker-webpack-plugin",
+  "version": "1.0.0",
+  "description": "Webpack plugin that warns you when multiple versions of the same package exist in a build.",
+  "main": "lib/index.js",
+  "engines": {
+    "node": ">=8.9.2"
   },
-  "lint-staged": {
-    "*.{js,json}": ["prettier --write", "git add"]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cerner/duplicate-package-checker-webpack-plugin.git"
+  },
+  "keywords": [
+    "Cerner",
+    "Terra",
+    "duplicate-package-checker-webpack-plugin",
+    "webpack"
+  ],
+  "author": "Cerner Corporation",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/cerner/duplicate-package-checker-webpack-plugin/issues"
+  },
+  "eslintConfig": {
+    "extends": "terra"
+  },
+  "scripts": {
+    "clean": "rm package-lock.json; rm -rf node_modules",
+    "clean:install": "npm run clean && npm install",
+    "jest": "jest --config jestConfig.js",
+    "lint": "eslint --ext .js . --fix",
+    "prepublishOnly": "npm whoami && check-installed-dependencies && npm test",
+    "release:major": "npm version major -m 'Released version %s' && npm publish",
+    "release:minor": "npm version minor -m 'Released version %s' && npm publish",
+    "release:patch": "npm version patch -m 'Released version %s' && npm publish",
+    "pretest": "npm run lint",
+    "test": "npm run jest"
   },
   "dependencies": {
     "chalk": "^2.3.0",
     "find-root": "^1.0.0",
-    "lodash": "^4.17.4",
+    "lodash.groupby": "^4.6.0",
     "semver": "^5.4.1"
   },
-  "jest": {
-    "testEnvironment": "node"
-  },
-  "repository": {
-    "type": "git",
-    "url":
-      "git+https://github.com/darrenscerri/duplicate-package-checker-webpack-plugin.git"
-  },
-  "keywords": ["webpack", "plugin"],
-  "author": "Darren Scerri <darrenscerri@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url":
-      "https://github.com/darrenscerri/duplicate-package-checker-webpack-plugin/issues"
-  },
-  "homepage":
-    "https://github.com/darrenscerri/duplicate-package-checker-webpack-plugin#readme",
+  "homepage": "https://github.com/cerner/duplicate-package-checker-webpack-plugin#readme",
   "devDependencies": {
-    "babel-cli": "^6.24.0",
-    "babel-core": "^6.24.0",
-    "babel-polyfill": "^6.23.0",
-    "babel-preset-es2015": "^6.24.0",
-    "husky": "^0.14.3",
-    "jest": "^22.4.2",
-    "lint-staged": "^5.0.0",
-    "prettier": "^1.11.1",
-    "webpack": "^4.1.1"
+    "check-installed-dependencies": "^1.0.0",
+    "core-js": "^3.1.3",
+    "eslint": "^5.12.0",
+    "eslint-config-terra": "^2.2.0",
+    "jest": "^24.0.0",
+    "regenerator-runtime": "^0.13.2",
+    "webpack": "^4.30.0"
   }
 }

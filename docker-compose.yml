@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  dev: &dev
+    image: "duplicate-package-checker-webpack-plugin:dev"
+    build:
+      context: ./
+      args:
+        - npm_install=false
+    ports:
+      - 8080:8080
+    environment:
+      - CI=true
+    volumes:
+      - .:/opt/module
+
+  term:
+    <<: *dev
+    command: "/bin/zsh"
+
+  test-ci:
+    build: ./
+    image: "duplicate-package-checker-webpack-plugin:dev"
+    environment:
+      - CI=true
