@@ -27,7 +27,6 @@
   "scripts": {
     "clean": "rm package-lock.json; rm -rf node_modules",
     "clean:install": "npm run clean && npm install",
-    "danger": "danger ci",
     "jest": "jest --config jestConfig.js",
     "lint": "eslint --ext .js . --fix",
     "prepublishOnly": "npm whoami && check-installed-dependencies && npm test",
@@ -47,7 +46,6 @@
   "devDependencies": {
     "check-installed-dependencies": "^1.0.0",
     "core-js": "^3.1.3",
-    "danger": "^8.0.0",
     "eslint": "^5.12.0",
     "eslint-config-terra": "^2.2.0",
     "jest": "^24.0.0",
