@@ -1,6 +1,10 @@
 # 🕵 duplicate-package-checker-webpack-plugin
 
-[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status](https://travis-ci.org/cerner/duplicate-package-checker-webpack-plugin.svg?branch=master)](https://travis-ci.org/cerner/duplicate-package-checker-webpack-plugin)
+[![NPM version](https://img.shields.io/npm/v/@cerner/duplicate-package-checker-webpack-plugin.svg)](https://www.npmjs.com/package/@cerner/duplicate-package-checker-webpack-plugin)
+[![Downloads](https://img.shields.io/npm/dt/@cerner/duplicate-package-checker-webpack-plugin.svg)](https://www.npmjs.com/package/@cerner/duplicate-package-checker-webpack-plugin)
+[![Build Status](https://badgen.net/travis/cerner/terra-toolkit)](https://travis-ci.com/cerner/terra-toolkit)
+[![Dependencies status](https://badgen.net/david/dep/cerner/duplicate-package-checker-webpack-plugin)](https://david-dm.org/cerner/duplicate-package-checker-webpack-plugin)
+[![devDependencies status](https://badgen.net/david/dev/cerner/duplicate-package-checker-webpack-plugin)](https://david-dm.org/cerner/duplicate-package-checker-webpack-plugin?type=dev)
 
 Webpack plugin that warns when your bundle contains multiple versions of the same package.
 
@@ -123,16 +127,3 @@ If your project is using an old version of a package and a dependency is using a
 
 If your project has a dependency and it's using an outdated version of a package, file an issue and notify the author to update the dependencies. Let's help keep our projects green and our applications secure, performant and bug-free!
 
-## Webpack versions
-
-### Webpack 3.x
-
-`npm install duplicate-package-checker-webpack-plugin@^2.1.0 --save-dev`
-
-### Webpack 4.x
-
-`npm install duplicate-package-checker-webpack-plugin`
-
-[downloads-image]: https://img.shields.io/npm/dt/duplicate-package-checker-webpack-plugin.svg
-[npm-url]: https://www.npmjs.com/package/duplicate-package-checker-webpack-plugin
-[npm-image]: https://img.shields.io/npm/v/duplicate-package-checker-webpack-plugin.svg
