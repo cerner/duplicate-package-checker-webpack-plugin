@@ -22,7 +22,7 @@
     "url": "https://github.com/cerner/duplicate-package-checker-webpack-plugin/issues"
   },
   "eslintConfig": {
-    "extends": "terra"
+    "extends": "@cerner/terra"
   },
   "scripts": {
     "clean": "rm package-lock.json; rm -rf node_modules",
@@ -44,10 +44,10 @@
   },
   "homepage": "https://github.com/cerner/duplicate-package-checker-webpack-plugin#readme",
   "devDependencies": {
+    "@cerner/eslint-config-terra": "^4.0.0",
     "check-installed-dependencies": "^1.0.0",
     "core-js": "^3.1.3",
-    "eslint": "^5.12.0",
-    "eslint-config-terra": "^2.2.0",
+    "eslint": "^6.1.0",
     "jest": "^24.0.0",
     "regenerator-runtime": "^0.13.2",
     "webpack": "^4.30.0"
