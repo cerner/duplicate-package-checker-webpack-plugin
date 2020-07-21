@@ -14,11 +14,8 @@ before_install:
 jobs:
   include:
     - stage: lint and jest
-      name: lint
       script:
         - npm run lint
-    - name: jest
-      script:
         - npm run jest
 stages:
   - lint and jest
