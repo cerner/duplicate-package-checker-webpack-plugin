@@ -4,7 +4,7 @@
   "description": "Webpack plugin that warns you when multiple versions of the same package exist in a build.",
   "main": "lib/index.js",
   "engines": {
-    "node": ">=8.9.2"
+    "node": ">=10"
   },
   "repository": {
     "type": "git",
@@ -42,6 +42,9 @@
     "find-root": "^1.0.0",
     "lodash.groupby": "^4.6.0",
     "semver": "^7.3.4"
+  },
+  "peerDependencies": {
+    "webpack": "^4.30.0 || ^5.0.0"
   },
   "homepage": "https://github.com/cerner/duplicate-package-checker-webpack-plugin#readme",
   "devDependencies": {
