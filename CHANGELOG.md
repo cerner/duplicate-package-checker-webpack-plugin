@@ -4,6 +4,9 @@ Changelog
 Unreleased
 ----------
 
+* Changed
+  * Update version of chalk used.
+
 1.1.0 - (June 9, 2020)
 ----------
 ### Changed
