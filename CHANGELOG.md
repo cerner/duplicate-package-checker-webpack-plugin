@@ -5,6 +5,7 @@
 * Changed
   * Support Webpack 5.
   * Update version of chalk used.
+  * Update version of semver used.
 
 * Breaking
   * Require Node 10
