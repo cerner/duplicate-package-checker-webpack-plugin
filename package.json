@@ -4,7 +4,7 @@
   "description": "Webpack plugin that warns you when multiple versions of the same package exist in a build.",
   "main": "lib/index.js",
   "engines": {
-    "node": ">=8.9.2"
+    "node": ">=10"
   },
   "repository": {
     "type": "git",

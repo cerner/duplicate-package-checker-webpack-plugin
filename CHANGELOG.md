@@ -8,6 +8,9 @@ Unreleased
   * Support Webpack 5.
   * Update version of chalk used.
 
+* Breaking
+  * Require Node 10
+
 1.1.0 - (June 9, 2020)
 ----------
 ### Changed
